@@ -4,7 +4,7 @@ An open source (for fun) game project build with Xamarin.Forms for Android and i
 
 ## Demo
 
-![Demo](https://github.com/yuv4ik/iknowthatflag/tree/master/Screenshots/demo.gif)
+![Demo](https://github.com/yuv4ik/iknowthatflag/raw/master/Screenshots/demo.gif)
 
 ## Features
 
