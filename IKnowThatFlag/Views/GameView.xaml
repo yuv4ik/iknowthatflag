@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:IKnowThatFlag"
+    xmlns:ctrls="clr-namespace:IKnowThatFlag.Controls"
+    xmlns:services="clr-namespace:IKnowThatFlag.Services"
+    x:Class="IKnowThatFlag.Views.GameView"
+    BackgroundColor="{StaticResource appBackgroundColor}"
+    Padding="{StaticResource appPagePadding}"
+    services:ViewModelLocator.AutoWireViewModel="true">
+    
+	<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackLayout
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal">
+            <Label
+                HorizontalTextAlignment="Start"
+                Text="{Binding Score}" />
+            <Label
+                HorizontalTextAlignment="End"
+                Text="{Binding AnsweredQuestions}" />
+                
+        </StackLayout>
+        
+        <Image
+            Grid.Row="1"
+            Source="{Binding Question.Flag}" />
+
+        <Label
+            HorizontalTextAlignment="Center"
+            Grid.Row="2"
+            Text="{Binding TimeLeft}" />
+
+        <ctrls:MultiChoiceView
+             Grid.Row="3"
+             Choices="{Binding Question.Options}"
+             SelectedChoice="{Binding SelectedAnswer}" />
+    </Grid>
+</ContentPage>

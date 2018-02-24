@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{35C3094B-236C-4F73-B240-AA559866AB6B}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>IKnowThatFlag.iOS</RootNamespace>
+    <AssemblyName>IKnowThatFlag.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>12280</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>11909</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="PropertyChanged">
+      <HintPath>..\packages\PropertyChanged.Fody.2.2.4.0\lib\netstandard1.0\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.5\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.4.118\lib\netstandard1.1\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.4.6.2\lib\netstandard1.1\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.5.0.280555\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IKnowThatFlag\IKnowThatFlag.csproj">
+      <Project>{E3CEC410-A0DA-4D8C-BC4A-C75E5A024AF9}</Project>
+      <Name>IKnowThatFlag</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Services\" />
+    <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+    <None Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\SqliteFileAccessHelper.cs" />
+    <Compile Include="Services\IocModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\png1000px\ad.png" />
+    <BundleResource Include="Resources\png1000px\ae.png" />
+    <BundleResource Include="Resources\png1000px\af.png" />
+    <BundleResource Include="Resources\png1000px\ag.png" />
+    <BundleResource Include="Resources\png1000px\ai.png" />
+    <BundleResource Include="Resources\png1000px\al.png" />
+    <BundleResource Include="Resources\png1000px\am.png" />
+    <BundleResource Include="Resources\png1000px\ao.png" />
+    <BundleResource Include="Resources\png1000px\aq.png" />
+    <BundleResource Include="Resources\png1000px\ar.png" />
+    <BundleResource Include="Resources\png1000px\as.png" />
+    <BundleResource Include="Resources\png1000px\at.png" />
+    <BundleResource Include="Resources\png1000px\au.png" />
+    <BundleResource Include="Resources\png1000px\aw.png" />
+    <BundleResource Include="Resources\png1000px\ax.png" />
+    <BundleResource Include="Resources\png1000px\az.png" />
+    <BundleResource Include="Resources\png1000px\ba.png" />
+    <BundleResource Include="Resources\png1000px\bb.png" />
+    <BundleResource Include="Resources\png1000px\bd.png" />
+    <BundleResource Include="Resources\png1000px\be.png" />
+    <BundleResource Include="Resources\png1000px\bf.png" />
+    <BundleResource Include="Resources\png1000px\bg.png" />
+    <BundleResource Include="Resources\png1000px\bh.png" />
+    <BundleResource Include="Resources\png1000px\bi.png" />
+    <BundleResource Include="Resources\png1000px\bj.png" />
+    <BundleResource Include="Resources\png1000px\bl.png" />
+    <BundleResource Include="Resources\png1000px\bm.png" />
+    <BundleResource Include="Resources\png1000px\bn.png" />
+    <BundleResource Include="Resources\png1000px\bo.png" />
+    <BundleResource Include="Resources\png1000px\br.png" />
+    <BundleResource Include="Resources\png1000px\bs.png" />
+    <BundleResource Include="Resources\png1000px\bt.png" />
+    <BundleResource Include="Resources\png1000px\bv.png" />
+    <BundleResource Include="Resources\png1000px\bw.png" />
+    <BundleResource Include="Resources\png1000px\by.png" />
+    <BundleResource Include="Resources\png1000px\bz.png" />
+    <BundleResource Include="Resources\png1000px\ca.png" />
+    <BundleResource Include="Resources\png1000px\cc.png" />
+    <BundleResource Include="Resources\png1000px\cd.png" />
+    <BundleResource Include="Resources\png1000px\cf.png" />
+    <BundleResource Include="Resources\png1000px\cg.png" />
+    <BundleResource Include="Resources\png1000px\ch.png" />
+    <BundleResource Include="Resources\png1000px\ci.png" />
+    <BundleResource Include="Resources\png1000px\ck.png" />
+    <BundleResource Include="Resources\png1000px\cl.png" />
+    <BundleResource Include="Resources\png1000px\cm.png" />
+    <BundleResource Include="Resources\png1000px\cn.png" />
+    <BundleResource Include="Resources\png1000px\co.png" />
+    <BundleResource Include="Resources\png1000px\cr.png" />
+    <BundleResource Include="Resources\png1000px\cu.png" />
+    <BundleResource Include="Resources\png1000px\cv.png" />
+    <BundleResource Include="Resources\png1000px\cw.png" />
+    <BundleResource Include="Resources\png1000px\cx.png" />
+    <BundleResource Include="Resources\png1000px\cy.png" />
+    <BundleResource Include="Resources\png1000px\cz.png" />
+    <BundleResource Include="Resources\png1000px\de.png" />
+    <BundleResource Include="Resources\png1000px\dj.png" />
+    <BundleResource Include="Resources\png1000px\dk.png" />
+    <BundleResource Include="Resources\png1000px\dm.png" />
+    <BundleResource Include="Resources\png1000px\do.png" />
+    <BundleResource Include="Resources\png1000px\dz.png" />
+    <BundleResource Include="Resources\png1000px\ec.png" />
+    <BundleResource Include="Resources\png1000px\ee.png" />
+    <BundleResource Include="Resources\png1000px\eg.png" />
+    <BundleResource Include="Resources\png1000px\eh.png" />
+    <BundleResource Include="Resources\png1000px\er.png" />
+    <BundleResource Include="Resources\png1000px\es.png" />
+    <BundleResource Include="Resources\png1000px\et.png" />
+    <BundleResource Include="Resources\png1000px\fi.png" />
+    <BundleResource Include="Resources\png1000px\fj.png" />
+    <BundleResource Include="Resources\png1000px\fk.png" />
+    <BundleResource Include="Resources\png1000px\fm.png" />
+    <BundleResource Include="Resources\png1000px\fo.png" />
+    <BundleResource Include="Resources\png1000px\fr.png" />
+    <BundleResource Include="Resources\png1000px\ga.png" />
+    <BundleResource Include="Resources\png1000px\gb-eng.png" />
+    <BundleResource Include="Resources\png1000px\gb-nir.png" />
+    <BundleResource Include="Resources\png1000px\gb-sct.png" />
+    <BundleResource Include="Resources\png1000px\gb-wls.png" />
+    <BundleResource Include="Resources\png1000px\gb.png" />
+    <BundleResource Include="Resources\png1000px\gd.png" />
+    <BundleResource Include="Resources\png1000px\ge.png" />
+    <BundleResource Include="Resources\png1000px\gf.png" />
+    <BundleResource Include="Resources\png1000px\gg.png" />
+    <BundleResource Include="Resources\png1000px\gh.png" />
+    <BundleResource Include="Resources\png1000px\gi.png" />
+    <BundleResource Include="Resources\png1000px\gl.png" />
+    <BundleResource Include="Resources\png1000px\gm.png" />
+    <BundleResource Include="Resources\png1000px\gn.png" />
+    <BundleResource Include="Resources\png1000px\gp.png" />
+    <BundleResource Include="Resources\png1000px\gq.png" />
+    <BundleResource Include="Resources\png1000px\gr.png" />
+    <BundleResource Include="Resources\png1000px\gs.png" />
+    <BundleResource Include="Resources\png1000px\gt.png" />
+    <BundleResource Include="Resources\png1000px\gu.png" />
+    <BundleResource Include="Resources\png1000px\gw.png" />
+    <BundleResource Include="Resources\png1000px\gy.png" />
+    <BundleResource Include="Resources\png1000px\hk.png" />
+    <BundleResource Include="Resources\png1000px\hm.png" />
+    <BundleResource Include="Resources\png1000px\hn.png" />
+    <BundleResource Include="Resources\png1000px\hr.png" />
+    <BundleResource Include="Resources\png1000px\ht.png" />
+    <BundleResource Include="Resources\png1000px\hu.png" />
+    <BundleResource Include="Resources\png1000px\id.png" />
+    <BundleResource Include="Resources\png1000px\ie.png" />
+    <BundleResource Include="Resources\png1000px\il.png" />
+    <BundleResource Include="Resources\png1000px\im.png" />
+    <BundleResource Include="Resources\png1000px\in.png" />
+    <BundleResource Include="Resources\png1000px\io.png" />
+    <BundleResource Include="Resources\png1000px\iq.png" />
+    <BundleResource Include="Resources\png1000px\ir.png" />
+    <BundleResource Include="Resources\png1000px\is.png" />
+    <BundleResource Include="Resources\png1000px\it.png" />
+    <BundleResource Include="Resources\png1000px\je.png" />
+    <BundleResource Include="Resources\png1000px\jm.png" />
+    <BundleResource Include="Resources\png1000px\jo.png" />
+    <BundleResource Include="Resources\png1000px\jp.png" />
+    <BundleResource Include="Resources\png1000px\ke.png" />
+    <BundleResource Include="Resources\png1000px\kg.png" />
+    <BundleResource Include="Resources\png1000px\kh.png" />
+    <BundleResource Include="Resources\png1000px\ki.png" />
+    <BundleResource Include="Resources\png1000px\km.png" />
+    <BundleResource Include="Resources\png1000px\kn.png" />
+    <BundleResource Include="Resources\png1000px\kosovo.png" />
+    <BundleResource Include="Resources\png1000px\kp.png" />
+    <BundleResource Include="Resources\png1000px\kr.png" />
+    <BundleResource Include="Resources\png1000px\kw.png" />
+    <BundleResource Include="Resources\png1000px\ky.png" />
+    <BundleResource Include="Resources\png1000px\kz.png" />
+    <BundleResource Include="Resources\png1000px\la.png" />
+    <BundleResource Include="Resources\png1000px\lb.png" />
+    <BundleResource Include="Resources\png1000px\lc.png" />
+    <BundleResource Include="Resources\png1000px\li.png" />
+    <BundleResource Include="Resources\png1000px\lk.png" />
+    <BundleResource Include="Resources\png1000px\lr.png" />
+    <BundleResource Include="Resources\png1000px\ls.png" />
+    <BundleResource Include="Resources\png1000px\lt.png" />
+    <BundleResource Include="Resources\png1000px\lu.png" />
+    <BundleResource Include="Resources\png1000px\lv.png" />
+    <BundleResource Include="Resources\png1000px\ly.png" />
+    <BundleResource Include="Resources\png1000px\ma.png" />
+    <BundleResource Include="Resources\png1000px\mc.png" />
+    <BundleResource Include="Resources\png1000px\md.png" />
+    <BundleResource Include="Resources\png1000px\me.png" />
+    <BundleResource Include="Resources\png1000px\mf.png" />
+    <BundleResource Include="Resources\png1000px\mg.png" />
+    <BundleResource Include="Resources\png1000px\mh.png" />
+    <BundleResource Include="Resources\png1000px\mk.png" />
+    <BundleResource Include="Resources\png1000px\ml.png" />
+    <BundleResource Include="Resources\png1000px\mm.png" />
+    <BundleResource Include="Resources\png1000px\mn.png" />
+    <BundleResource Include="Resources\png1000px\mo.png" />
+    <BundleResource Include="Resources\png1000px\mp.png" />
+    <BundleResource Include="Resources\png1000px\mq.png" />
+    <BundleResource Include="Resources\png1000px\mr.png" />
+    <BundleResource Include="Resources\png1000px\ms.png" />
+    <BundleResource Include="Resources\png1000px\mt.png" />
+    <BundleResource Include="Resources\png1000px\mu.png" />
+    <BundleResource Include="Resources\png1000px\mv.png" />
+    <BundleResource Include="Resources\png1000px\mw.png" />
+    <BundleResource Include="Resources\png1000px\mx.png" />
+    <BundleResource Include="Resources\png1000px\my.png" />
+    <BundleResource Include="Resources\png1000px\mz.png" />
+    <BundleResource Include="Resources\png1000px\na.png" />
+    <BundleResource Include="Resources\png1000px\nc.png" />
+    <BundleResource Include="Resources\png1000px\ne.png" />
+    <BundleResource Include="Resources\png1000px\nf.png" />
+    <BundleResource Include="Resources\png1000px\ng.png" />
+    <BundleResource Include="Resources\png1000px\ni.png" />
+    <BundleResource Include="Resources\png1000px\nl.png" />
+    <BundleResource Include="Resources\png1000px\no.png" />
+    <BundleResource Include="Resources\png1000px\np.png" />
+    <BundleResource Include="Resources\png1000px\nr.png" />
+    <BundleResource Include="Resources\png1000px\nu.png" />
+    <BundleResource Include="Resources\png1000px\nz.png" />
+    <BundleResource Include="Resources\png1000px\om.png" />
+    <BundleResource Include="Resources\png1000px\pa.png" />
+    <BundleResource Include="Resources\png1000px\pe.png" />
+    <BundleResource Include="Resources\png1000px\pf.png" />
+    <BundleResource Include="Resources\png1000px\pg.png" />
+    <BundleResource Include="Resources\png1000px\ph.png" />
+    <BundleResource Include="Resources\png1000px\pk.png" />
+    <BundleResource Include="Resources\png1000px\pl.png" />
+    <BundleResource Include="Resources\png1000px\pm.png" />
+    <BundleResource Include="Resources\png1000px\pn.png" />
+    <BundleResource Include="Resources\png1000px\pr.png" />
+    <BundleResource Include="Resources\png1000px\ps.png" />
+    <BundleResource Include="Resources\png1000px\pt.png" />
+    <BundleResource Include="Resources\png1000px\pw.png" />
+    <BundleResource Include="Resources\png1000px\py.png" />
+    <BundleResource Include="Resources\png1000px\qa.png" />
+    <BundleResource Include="Resources\png1000px\re.png" />
+    <BundleResource Include="Resources\png1000px\ro.png" />
+    <BundleResource Include="Resources\png1000px\rs.png" />
+    <BundleResource Include="Resources\png1000px\ru.png" />
+    <BundleResource Include="Resources\png1000px\rw.png" />
+    <BundleResource Include="Resources\png1000px\sa.png" />
+    <BundleResource Include="Resources\png1000px\sb.png" />
+    <BundleResource Include="Resources\png1000px\sc.png" />
+    <BundleResource Include="Resources\png1000px\sd.png" />
+    <BundleResource Include="Resources\png1000px\se.png" />
+    <BundleResource Include="Resources\png1000px\sg.png" />
+    <BundleResource Include="Resources\png1000px\sh.png" />
+    <BundleResource Include="Resources\png1000px\si.png" />
+    <BundleResource Include="Resources\png1000px\sj.png" />
+    <BundleResource Include="Resources\png1000px\sk.png" />
+    <BundleResource Include="Resources\png1000px\sl.png" />
+    <BundleResource Include="Resources\png1000px\sm.png" />
+    <BundleResource Include="Resources\png1000px\sn.png" />
+    <BundleResource Include="Resources\png1000px\so.png" />
+    <BundleResource Include="Resources\png1000px\sr.png" />
+    <BundleResource Include="Resources\png1000px\ss.png" />
+    <BundleResource Include="Resources\png1000px\st.png" />
+    <BundleResource Include="Resources\png1000px\sv.png" />
+    <BundleResource Include="Resources\png1000px\sx.png" />
+    <BundleResource Include="Resources\png1000px\sy.png" />
+    <BundleResource Include="Resources\png1000px\sz.png" />
+    <BundleResource Include="Resources\png1000px\tc.png" />
+    <BundleResource Include="Resources\png1000px\td.png" />
+    <BundleResource Include="Resources\png1000px\tf.png" />
+    <BundleResource Include="Resources\png1000px\tg.png" />
+    <BundleResource Include="Resources\png1000px\th.png" />
+    <BundleResource Include="Resources\png1000px\tj.png" />
+    <BundleResource Include="Resources\png1000px\tk.png" />
+    <BundleResource Include="Resources\png1000px\tl.png" />
+    <BundleResource Include="Resources\png1000px\tm.png" />
+    <BundleResource Include="Resources\png1000px\tn.png" />
+    <BundleResource Include="Resources\png1000px\to.png" />
+    <BundleResource Include="Resources\png1000px\tr.png" />
+    <BundleResource Include="Resources\png1000px\tt.png" />
+    <BundleResource Include="Resources\png1000px\tv.png" />
+    <BundleResource Include="Resources\png1000px\tw.png" />
+    <BundleResource Include="Resources\png1000px\tz.png" />
+    <BundleResource Include="Resources\png1000px\ua.png" />
+    <BundleResource Include="Resources\png1000px\ug.png" />
+    <BundleResource Include="Resources\png1000px\um.png" />
+    <BundleResource Include="Resources\png1000px\us.png" />
+    <BundleResource Include="Resources\png1000px\uy.png" />
+    <BundleResource Include="Resources\png1000px\uz.png" />
+    <BundleResource Include="Resources\png1000px\va.png" />
+    <BundleResource Include="Resources\png1000px\vc.png" />
+    <BundleResource Include="Resources\png1000px\ve.png" />
+    <BundleResource Include="Resources\png1000px\vg.png" />
+    <BundleResource Include="Resources\png1000px\vi.png" />
+    <BundleResource Include="Resources\png1000px\vn.png" />
+    <BundleResource Include="Resources\png1000px\vu.png" />
+    <BundleResource Include="Resources\png1000px\wf.png" />
+    <BundleResource Include="Resources\png1000px\ws.png" />
+    <BundleResource Include="Resources\png1000px\ye.png" />
+    <BundleResource Include="Resources\png1000px\yt.png" />
+    <BundleResource Include="Resources\png1000px\za.png" />
+    <BundleResource Include="Resources\png1000px\zm.png" />
+    <BundleResource Include="Resources\png1000px\zw.png" />
+    <BundleResource Include="Resources\Fonts\IndieFlower.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\globe_green.png" />
+    <BundleResource Include="Resources\globe_green%402x.png" />
+    <BundleResource Include="Resources\flags.sqlite3" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Fody.2.2.1.0\build\netstandard1.2\Fody.targets" Condition="Exists('..\packages\Fody.2.2.1.0\build\netstandard1.2\Fody.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.280555\build\netstandard1.0\Xamarin.Forms.targets')" />
+</Project>

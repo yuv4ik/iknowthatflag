@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="IKnowThatFlag.App">
+	<Application.Resources>
+		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Color x:Key="appBackgroundColor">#D6EAF8</Color>
+
+            <OnPlatform
+                x:Key="appPagePadding"
+                x:TypeArguments="Thickness"
+                iOS="25"
+                Android="5" />
+
+             <OnPlatform
+                x:Key="appFont"
+                x:TypeArguments="x:String"
+                iOS="Indie Flower"
+                Android="IndieFlower.ttf#Indie Flower Regular" />
+
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource appFont}" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="{StaticResource appFont}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>

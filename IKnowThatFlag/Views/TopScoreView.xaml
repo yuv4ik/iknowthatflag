@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:IKnowThatFlag.Converters"
+    xmlns:services="clr-namespace:IKnowThatFlag.Services"
+    x:Class="IKnowThatFlag.Views.TopScoreView"
+    BackgroundColor="{StaticResource appBackgroundColor}"
+    Padding="{StaticResource appPagePadding}"
+    services:ViewModelLocator.AutoWireViewModel="true">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:TimeSpanToString x:Key="timeSpanToString" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout
+        Orientation="Vertical">
+        <ListView
+            ItemsSource="{Binding TopScores}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                                Text="{Binding Score}" />
+
+                            <Label
+                                Grid.Column="1"
+                                Text="{Binding RightAnswers}" />
+
+                            <Label
+                                Grid.Column="2"
+                                Text="{Binding Date}" />
+
+                            <Label
+                                Grid.Column="3"
+                                Text="{Binding TimeInGame, Converter={StaticResource timeSpanToString}}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button
+            Text="Back"
+            Command="{Binding GoBackCmd}" />
+    </StackLayout>
+	
+</ContentPage>
