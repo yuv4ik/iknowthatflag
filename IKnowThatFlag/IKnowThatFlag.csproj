@@ -1,112 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3CEC410-A0DA-4D8C-BC4A-C75E5A024AF9}</ProjectGuid>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <RootNamespace>IKnowThatFlag</RootNamespace>
-    <AssemblyName>IKnowThatFlag</AssemblyName>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+    
   <ItemGroup>
-    <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="Views\GameView.xaml" />
-    <EmbeddedResource Include="Views\WelcomeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\TopScoreView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\AboutView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <PackageReference Include="Autofac" Version="4.6.2" />
+    <PackageReference Include="Fody" Version="2.2.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="PropertyChanged.Fody" Version="2.2.4.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.4.118" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\GameView.xaml.cs">
-      <DependentUpon>GameView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Question.cs" />
-    <Compile Include="ViewModels\GameViewModel.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="Views\WelcomeView.xaml.cs">
-      <DependentUpon>WelcomeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Behaviors\ImageRotationBehavior.cs" />
-    <Compile Include="ViewModels\WelcomeViewModel.cs" />
-    <Compile Include="Behaviors\LabelBouncingBehavior.cs" />
-    <Compile Include="Behaviors\AnimationLoopBehavior.cs" />
-    <Compile Include="Controls\MultiChoiceView.cs" />
-    <Compile Include="Services\ISqliteFileAccessHelper.cs" />
-    <Compile Include="Models\FlagModel.cs" />
-    <Compile Include="Services\Game\IGameService.cs" />
-    <Compile Include="Services\Game\GameService.cs" />
-    <Compile Include="Services\DependencyResolver.cs" />
-    <Compile Include="Services\IocModule.cs" />
-    <Compile Include="Services\Navigation\INavigationService.cs" />
-    <Compile Include="Services\Navigation\NavigationService.cs" />
-    <Compile Include="Services\NaiveTimer.cs" />
-    <Compile Include="Models\GameMode.cs" />
-    <Compile Include="Entities\Flag.cs" />
-    <Compile Include="Entities\TopScore.cs" />
-    <Compile Include="Models\TopScoreModel.cs" />
-    <Compile Include="Views\TopScoreView.xaml.cs">
-      <DependentUpon>TopScoreView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\TopScoreViewModel.cs" />
-    <Compile Include="Repositories\FlagsRepository.cs" />
-    <Compile Include="Repositories\TopScoreRepository.cs" />
-    <Compile Include="Converters\TimeSpanToString.cs" />
-    <Compile Include="Services\TypeMapper\ITypeMapperService.cs" />
-    <Compile Include="Services\TypeMapper\TypeMapperService.cs" />
-    <Compile Include="Services\ViewModelLocator.cs" />
-    <Compile Include="Views\AboutView.xaml.cs">
-      <DependentUpon>AboutView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\AboutViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="FodyWeavers.xml" />
-    <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-    <Folder Include="Services\" />
-    <Folder Include="Models\" />
-    <Folder Include="Behaviors\" />
-    <Folder Include="Controls\" />
-    <Folder Include="Services\Game\" />
-    <Folder Include="Services\Navigation\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Converters\" />
-    <Folder Include="Services\TypeMapper\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-<!--  <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />-->
-  <Import Project="..\packages\Fody.2.2.1.0\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.2.2.1.0\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
+
 </Project>
